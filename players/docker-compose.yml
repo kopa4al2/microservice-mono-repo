@@ -1,0 +1,10 @@
+version: '3.3' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  users:
+    image: users:0.0.1-SNAPSHOT
+    environment:
+      - "env=local"
+    ports:
+      - "8080:8080"

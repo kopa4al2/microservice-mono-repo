@@ -1,0 +1,1 @@
+./gradlew clean build && cp -a ./build/libs/. ../libs-shared/

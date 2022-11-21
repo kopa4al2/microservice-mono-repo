@@ -1,0 +1,25 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${HOME}/IdeaProjects/spring-reactive/config-properties
+          search-paths:
+            - /common
+            - /{profile}/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: { eureka_url }
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

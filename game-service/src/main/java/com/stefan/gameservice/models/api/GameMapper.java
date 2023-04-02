@@ -1,7 +1,6 @@
 package com.stefan.gameservice.models.api;
 
 import com.stefan.gameservice.models.game.GameEntity;
-import com.stefan.gameserviceapi.Player;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -18,6 +17,7 @@ public interface GameMapper {
     GameMapper instance = Mappers.getMapper(GameMapper.class);
 
     @Mapping(source = "game.gameState", target = "gameState")
+    @Mapping(source = "game.id", target = "id")
     GameImpl toGameDto(GameEntity game, List<PlayerImpl> players);
 
 }

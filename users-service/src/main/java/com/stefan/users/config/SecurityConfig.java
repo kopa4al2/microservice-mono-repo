@@ -21,14 +21,14 @@ import static org.springframework.security.config.Customizer.withDefaults;
  * @author Stefan Ivanov
  * @since 20.11.2022
  */
-@Configuration
-@EnableWebFluxSecurity
+//@Configuration
+//@EnableWebFluxSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
 
     private final UserRepository userRepository;
 
-    @Bean
+   /* @Bean
     public MapReactiveUserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user")
@@ -53,5 +53,5 @@ public class SecurityConfig {
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults());
         return http.build();
-    }
+    }*/
 }

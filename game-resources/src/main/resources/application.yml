@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: game-resources
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: cloud-config
+      fail-fast: true
+      profile: local
+      request-connect-timeout: 10
+  config:
+    import: configserver:http://localhost:8762
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/microservice?schema=game_resources
+    default-schema: game_resources
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoint:
+    info:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /manage

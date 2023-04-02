@@ -3,7 +3,8 @@ create table players
     id           bigserial primary key,
     nickname     varchar(255) not null,
     score        bigint       not null default 0,
-    current_game bigint                default null
+    current_game bigint                default null,
+    ready_state  numeric(1)            default 0
 );
 
 create table games

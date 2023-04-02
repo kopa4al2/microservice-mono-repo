@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HexGrid</title>
+    <style>
+        :root {
+            overflow: hidden;
+            background: #212121;
+        }
+        .row {
+            display: flex;
+        }
+        .col {
+            flex: 50% 1 1;
+        }
+        .debug {
+            position: absolute;
+            z-index: 10;
+            width: calc(100% - 1250px);
+            right: 0;
+        }
+        .linkToHex {
+            cursor: pointer;
+            color: white;
+        }
+        .linkToHex.clicked {
+            color: #b496fd;
+        }
+        .linkToHex:hover {
+            color: #aaa;
+        }
+        .canvases {
+            position: relative;
+            flex: 75% 1 1;
+        }
+        #offscreenCanvas {
+            display: none;
+        }
+        canvas {
+            /*width: 100vw;*/
+            /*height: 100vh;*/
+            cursor: pointer;
+            box-shadow: 0px 2px 4px -1px rgba(255, 255, 255, 0.2),
+                        0px 4px 5px 0px rgba(255, 255, 255, 0.14),
+                        0px 1px 10px 0px rgba(255, 255, 255, 0.12);
+            border: 1px solid #aaaaaa99;
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+        .clipped {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 99;
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body>
+<img id=img style="display: none" />
+<div class="row">
+    <div class="col canvases">
+        <canvas id="canvas" width="1200" height="800" oncontextmenu="return false;"></canvas>
+        <canvas id="canvas-overlay" width="1200" height="800" oncontextmenu="return false;"></canvas>
+    </div>
+    <div class="col debug">
+        <div id="coordinates"></div>
+    </div>
+    <div class="viewport">
+        <img id="tiles" class="clipped" src="2d-tiles.png" alt="Clipped image"/>
+    </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix.js" integrity="sha512-C36Mc3LuY9RCMgT8A3Z5i+5fYr1/9yVxODdw2LdSnhIgI6Pg3LmmgJL3df+KghqEouKxRBTPK9J+FTZMcdtbGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="utils.js"></script>
+<script src="Canvas.js"></script>
+<script src="WebGlCanvas.js"></script>
+<script src="init.js"></script>
+<script src="webgl.js"></script>
+</html>

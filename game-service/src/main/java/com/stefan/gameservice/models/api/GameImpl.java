@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GameImpl implements Game {
+    private Long id;
     private GameState gameState;
     private List<Player> players;
-
 }

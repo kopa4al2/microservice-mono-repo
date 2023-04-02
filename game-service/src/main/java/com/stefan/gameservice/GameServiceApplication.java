@@ -29,14 +29,12 @@ public class GameServiceApplication {
                 .reduce(Long::sum)
                 .subscribe(count -> {
                     if (count == 0) {
-                        playerRepository.save(PlayerEntity.builder()
-                                        .nickname("nick1")
+                        Flux.just("stefan", "ivan", "sasho")
+                                .map(nick -> PlayerEntity.builder()
+                                        .nickname(nick)
                                         .build())
-                                .subscribe(inserted -> gameRepository.save(GameEntity.builder()
-                                                .gameState(GameState.READY_TO_START)
-                                                .host(inserted.id())
-                                                .build())
-                                        .subscribe());
+                                .flatMap(playerRepository::save)
+                                .subscribe();
                     }
                 });
     }

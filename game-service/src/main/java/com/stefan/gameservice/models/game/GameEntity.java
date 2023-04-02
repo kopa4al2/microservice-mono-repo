@@ -20,6 +20,10 @@ public record GameEntity(@Id Long id, GameState gameState, Long host, LocalDateT
         return new GameEntity(null, GameState.INITIAL, hostPlayerId, LocalDateTime.now());
     }
 
+    public GameEntity readyGame() {
+        return new GameEntity(id, GameState.READY_TO_START, host, createDate);
+    }
+
     public GameEntity startGame() {
         return new GameEntity(id, GameState.IN_PROGRESS, host, createDate);
     }

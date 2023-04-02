@@ -25,4 +25,7 @@ public interface GameService {
 
     Mono<Game> endGame(Long gameId);
 
+    Mono<Game> readyPlayer(Long gameId, Long playerId);
+
+    Mono<Game> unReadyPlayer(Long gameId, Long playerId);
 }

@@ -8,7 +8,9 @@ import java.util.List;
  */
 public interface Game {
 
+    Long getId();
+
     GameState getGameState();
 
-    List<Player> getPlayers();
+    List<? extends Player> getPlayers();
 }

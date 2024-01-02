@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "es6",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "types": [
+      "three"
+    ]
+  }
+}

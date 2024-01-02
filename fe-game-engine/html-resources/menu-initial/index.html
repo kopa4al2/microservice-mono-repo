@@ -1,0 +1,45 @@
+
+
+<template id="my-button-template">
+  <style>
+    /* Define component styles within the shadow DOM */
+    :host .options {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+    }
+  </style>
+  <div class="options">
+    <div class="menu-option create-game">Create Game</div>
+    <div class="menu-option join-game">Join Game</div>
+  </div>
+</template>
+
+<script>
+  // Define the custom element class
+  class InitialMenu extends HTMLElement {
+    constructor() {
+      super();
+
+      // Create a shadow DOM and append the template content
+      const shadowRoot = this.attachShadow({ mode: 'open' });
+      const template = document.getElementById('my-button-template');
+      const templateContent = template.content.cloneNode(true);
+      shadowRoot.appendChild(templateContent);
+
+      // Add a click event listener to the button
+      const button = shadowRoot.getElementById('my-button');
+      button.addEventListener('click', () => this.handleClick());
+    }
+
+    handleClick() {
+      // Display a message when the button is clicked
+      alert('Button clicked!');
+    }
+  }
+
+  // Define the custom element 'my-button'
+  customElements.define('my-button', MyButton);
+</script>
